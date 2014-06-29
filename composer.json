@@ -1,0 +1,33 @@
+{
+    "name": "alexkovalevych/jira-api",
+    "type": "library",
+    "description": "Jira api php library",
+    "keywords": [
+        "api", "git", "github", "jira", "pull request", "contributor", "community", "package"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alex Kovalevych",
+            "email": "alexkovalevych@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "guzzlehttp/guzzle": "~4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.1.0"
+    },
+    "autoload": {
+        "psr-4": {"JiraApi\\": "src"}
+    },
+    "autoload-dev": {
+        "psr-4": {"JiraApi\\Tests\\": "tests"}
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}

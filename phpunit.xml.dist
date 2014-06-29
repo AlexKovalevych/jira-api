@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    This file is part of JiraApi.
+
+    (c) Alex Kovalevych <alexkovalevych@gmail.com>
+
+    This source file is subject to the MIT license that is bundled
+    with this source code in the file LICENSE.
+-->
+
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         syntaxCheck="false"
+         bootstrap="./vendor/autoload.php"
+    >
+
+    <php>
+        <ini name="date.timezone" value="America/Los_Angeles"/>
+    </php>
+
+    <testsuites>
+        <testsuite name="JiraApi Test Suite">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory>src</directory>
+        </whitelist>
+    </filter>
+</phpunit>
