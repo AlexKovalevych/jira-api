@@ -280,6 +280,18 @@ class IssueClientTest extends ClientTestCase
         $this->assertEquals(10001, $searchResults['issues'][0]['id']);
     }
 
+    public function testCreateAttachement()
+    {
+        $jsonFile = __DIR__ . '/../fixtures/issue/attachment.json';
+        $file = fopen($jsonFile, 'r');
+        $issueClient = $this->getIssueClientMock($this->getJsonResponseMock($jsonFile));
+        $response = $issueClient->createAttachment(10000, $file)->json();
+
+        $this->assertCount(1, $response);
+        $this->assertArrayHasKey('author', $response[0]);
+        $this->assertArrayHasKey('filename', $response[0]);
+    }
+
     protected function getIssueClientMock(Response $response)
     {
         $issueClientMock = $this
