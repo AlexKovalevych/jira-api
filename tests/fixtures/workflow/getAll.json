@@ -1,0 +1,28 @@
+[
+    {
+        "name":"jira",
+        "description":"The default JIRA workflow.",
+        "steps":5,
+        "default":true
+    },
+    {
+        "name":"Builds Workflow",
+        "description":"Builds Workflow",
+        "steps":7,
+        "default":false
+    },
+    {
+        "name":"classic default workflow",
+        "description":"The classic JIRA default workflow",
+        "steps":5,
+        "default":false
+    },
+    {
+        "name":"PROJ: Software Development Workflow",
+        "description":"",
+        "lastModifiedDate":"Sunday 11:36 PM",
+        "lastModifiedUser":"alex smith [Administrator]",
+        "steps":4,
+        "default":false
+    }
+]

@@ -3,7 +3,6 @@
 namespace JiraApi\Tests\Clients;
 
 use GuzzleHttp\Message\Response;
-use JiraApi\Clients\IssueClient;
 use JiraApi\Tests\ClientTestCase;
 
 class IssueClientTest extends ClientTestCase

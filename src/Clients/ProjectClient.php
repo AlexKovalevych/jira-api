@@ -31,4 +31,32 @@ class ProjectClient extends AbstractClient
     {
         return $this->getRequest(sprintf('project/%s', $idOrKey));
     }
+
+    /**
+     * Returns project versions by its id or key
+     *
+     * @link  https://docs.atlassian.com/jira/REST/latest/#d2e2349
+     *
+     * @param  integer|string $idOrKey
+     *
+     * @return GuzzleHttp\Message\Response
+     */
+    public function getVersions($idOrKey)
+    {
+        return $this->getRequest(sprintf('project/%s/versions', $idOrKey));
+    }
+
+    /**
+     * Returns project issue types with valid status values by its id or key
+     *
+     * @link  https://docs.atlassian.com/jira/REST/latest/#d2e2536
+     *
+     * @param  integer|string $idOrKey
+     *
+     * @return GuzzleHttp\Message\Response
+     */
+    public function getStatuses($idOrKey)
+    {
+        return $this->getRequest(sprintf('project/%s/statuses', $idOrKey));
+    }
 }
