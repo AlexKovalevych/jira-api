@@ -48,7 +48,7 @@ abstract class AbstractClient
      * @param  string $uri
      * @param  array $data
      *
-     * @return GuzzleHttp\Message\Response
+     * @return \GuzzleHttp\Message\Response
      */
     public function postRequest($uri, array $data = null)
     {
