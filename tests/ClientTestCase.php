@@ -3,7 +3,6 @@
 namespace JiraApi\Tests;
 
 use GuzzleHttp\Exception\BadResponseException;
-use JiraApi\Tests\JsonResponseMock;
 
 class ClientTestCase extends \PHPUnit_Framework_TestCase
 {

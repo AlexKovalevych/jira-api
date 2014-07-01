@@ -37,7 +37,7 @@ abstract class AbstractClient
     /**
      * @param  string $uri
      *
-     * @return GuzzleHttp\Message\Response
+     * @return \GuzzleHttp\Message\Response
      */
     public function getRequest($uri)
     {
@@ -46,9 +46,9 @@ abstract class AbstractClient
 
     /**
      * @param  string $uri
-     * @param  string $data
+     * @param  array $data
      *
-     * @return GuzzleHttp\Message\Response
+     * @return \GuzzleHttp\Message\Response
      */
     public function postRequest($uri, array $data = null)
     {
@@ -59,9 +59,9 @@ abstract class AbstractClient
 
     /**
      * @param  string $uri
-     * @param  string $data
+     * @param array $data
      *
-     * @return GuzzleHttp\Message\Response
+     * @return \GuzzleHttp\Message\Response
      */
     public function putRequest($uri, array $data = null)
     {
@@ -73,7 +73,7 @@ abstract class AbstractClient
     /**
      * @param  string $uri
      *
-     * @return GuzzleHttp\Message\Response
+     * @return \GuzzleHttp\Message\Response
      */
     public function deleteRequest($uri)
     {

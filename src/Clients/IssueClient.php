@@ -2,8 +2,6 @@
 
 namespace JiraApi\Clients;
 
-use JiraApi\Clients\AbstractClient;
-
 class IssueClient extends AbstractClient
 {
     /**
@@ -14,7 +12,7 @@ class IssueClient extends AbstractClient
      * @param  integer|string $idOrKey
      * @param  array          $fields array of fields to be returns (return all by default)
      *
-     * @return GuzzleHttp\Message\Response
+     * @return \GuzzleHttp\Message\Response
      */
     public function get($idOrKey, array $fields = null)
     {
@@ -32,7 +30,7 @@ class IssueClient extends AbstractClient
      *
      * @param  array $data
      *
-     * @return GuzzleHttp\Message\Response
+     * @return \GuzzleHttp\Message\Response
      */
     public function create(array $data)
     {
@@ -47,7 +45,7 @@ class IssueClient extends AbstractClient
      * @param  integer|string  $idOrKey
      * @param  boolean         $deleteSubtasks
      *
-     * @return GuzzleHttp\Message\Response
+     * @return \GuzzleHttp\Message\Response
      */
     public function delete($idOrKey, $deleteSubtasks = false)
     {
@@ -64,7 +62,7 @@ class IssueClient extends AbstractClient
      * @param  integer|string $idOrKey
      * @param  array          $data
      *
-     * @return GuzzleHttp\Message\Response
+     * @return \GuzzleHttp\Message\Response
      */
     public function update($idOrKey, array $data)
     {
@@ -78,7 +76,7 @@ class IssueClient extends AbstractClient
      *
      * @param  integer|string $idOrKey
      *
-     * @return GuzzleHttp\Message\Response
+     * @return \GuzzleHttp\Message\Response
      */
     public function getTransitions($idOrKey)
     {
@@ -93,7 +91,7 @@ class IssueClient extends AbstractClient
      * @param  integer|string $idOrKey
      * @param  array          $data
      *
-     * @return GuzzleHttp\Message\Response
+     * @return \GuzzleHttp\Message\Response
      */
     public function createTransition($idOrKey, array $data)
     {
@@ -107,7 +105,7 @@ class IssueClient extends AbstractClient
      *
      * @param  integer|string $idOrKey
      *
-     * @return GuzzleHttp\Message\Response
+     * @return \GuzzleHttp\Message\Response
      */
     public function getComments($idOrKey)
     {
@@ -122,7 +120,7 @@ class IssueClient extends AbstractClient
      * @param  integer|string $idOrKey
      * @param  array          $data
      *
-     * @return GuzzleHttp\Message\Response
+     * @return \GuzzleHttp\Message\Response
      */
     public function createComment($idOrKey, array $data)
     {
@@ -138,7 +136,7 @@ class IssueClient extends AbstractClient
      * @param  integer        $commentId
      * @param  array          $data
      *
-     * @return GuzzleHttp\Message\Response
+     * @return \GuzzleHttp\Message\Response
      */
     public function updateComment($idOrKey, $commentId, array $data)
     {
@@ -153,7 +151,7 @@ class IssueClient extends AbstractClient
      * @param  integer|string $idOrKey
      * @param  integer        $commentId
      *
-     * @return GuzzleHttp\Message\Response
+     * @return \GuzzleHttp\Message\Response
      */
     public function deleteComment($idOrKey, $commentId)
     {
@@ -167,7 +165,7 @@ class IssueClient extends AbstractClient
      *
      * @param  integer|string $idOrKey
      *
-     * @return GuzzleHttp\Message\Response
+     * @return \GuzzleHttp\Message\Response
      */
     public function getFullWorklog($idOrKey)
     {
@@ -185,7 +183,7 @@ class IssueClient extends AbstractClient
      * @param  string         $newEstimate    (required for "new" adjustEstimate)
      * @param  string         $reduceBy       (required for "manual" adjustEstimate)
      *
-     * @return GuzzleHttp\Message\Response
+     * @return \GuzzleHttp\Message\Response
      */
     public function createWorklog($idOrKey, array $data, $adjustEstimate = null, $newEstimate = null, $reduceBy = null)
     {
@@ -210,7 +208,7 @@ class IssueClient extends AbstractClient
      * @param  integer|string $idOrKey
      * @param  integer        $worklogId
      *
-     * @return GuzzleHttp\Message\Response
+     * @return \GuzzleHttp\Message\Response
      */
     public function getWorklog($idOrKey, $worklogId)
     {
@@ -228,7 +226,7 @@ class IssueClient extends AbstractClient
      * @param  string         $adjustEstimate
      * @param  string         $newEstimate
      *
-     * @return GuzzleHttp\Message\Response
+     * @return \GuzzleHttp\Message\Response
      */
     public function updateWorklog($idOrKey, $worklogId, array $data, $adjustEstimate = null, $newEstimate = null)
     {
@@ -255,7 +253,7 @@ class IssueClient extends AbstractClient
      * @param  string         $newEstimate
      * @param  string         $increaseBy
      *
-     * @return GuzzleHttp\Message\Response
+     * @return \GuzzleHttp\Message\Response
      */
     public function deleteWorklog($idOrKey, $worklogId, $adjustEstimate = null, $newEstimate = null, $increaseBy = null)
     {
