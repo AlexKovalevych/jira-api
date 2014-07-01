@@ -2,8 +2,6 @@
 
 namespace JiraApi\Clients;
 
-use JiraApi\Clients\AbstractClient;
-
 class ProjectClient extends AbstractClient
 {
     /**
@@ -11,7 +9,7 @@ class ProjectClient extends AbstractClient
      *
      * @link  https://docs.atlassian.com/jira/REST/latest/#d2e2304
      *
-     * @return GuzzleHttp\Message\Response
+     * @return \GuzzleHttp\Message\Response
      */
     public function getAll()
     {
@@ -25,7 +23,7 @@ class ProjectClient extends AbstractClient
      *
      * @param  integer|string $idOrKey
      *
-     * @return GuzzleHttp\Message\Response
+     * @return \GuzzleHttp\Message\Response
      */
     public function get($idOrKey)
     {
@@ -39,7 +37,7 @@ class ProjectClient extends AbstractClient
      *
      * @param  integer|string $idOrKey
      *
-     * @return GuzzleHttp\Message\Response
+     * @return \GuzzleHttp\Message\Response
      */
     public function getVersions($idOrKey)
     {
@@ -53,7 +51,7 @@ class ProjectClient extends AbstractClient
      *
      * @param  integer|string $idOrKey
      *
-     * @return GuzzleHttp\Message\Response
+     * @return \GuzzleHttp\Message\Response
      */
     public function getStatuses($idOrKey)
     {
