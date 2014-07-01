@@ -10,6 +10,10 @@
         {
             "name": "Alex Kovalevych",
             "email": "alexkovalevych@gmail.com"
+        },
+        {
+            "name": "Luis Cordova",
+            "email": "cordoval@gmail.com"
         }
     ],
     "require": {
