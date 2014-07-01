@@ -12,14 +12,14 @@ abstract class AbstractClient
     protected $client;
 
     /**
-     * @param string $domain
+     * @param string $url
      * @param string $username
      * @param string $password
      */
-    public function __construct($domain, $username, $password)
+    public function __construct($url, $username, $password)
     {
         $this->client = new GuzzleClient(array(
-            'base_url' => sprintf('https://%s.atlassian.net/rest/api/latest/', $domain),
+            'base_url' => $url,
             'defaults' => array(
                 'auth' => array($username, $password)
             ))
