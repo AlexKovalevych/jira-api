@@ -2,7 +2,6 @@
 
 namespace JiraApi\Tests\Clients;
 
-use JiraApi\Clients\IssueClient;
 use JiraApi\Search\SearchBuilder;
 use GuzzleHttp\Message\Response;
 use JiraApi\Tests\ClientTestCase;
