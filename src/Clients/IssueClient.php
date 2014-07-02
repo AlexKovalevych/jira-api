@@ -2,6 +2,8 @@
 
 namespace JiraApi\Clients;
 
+use JiraApi\Search\SearchBuilder;
+
 class IssueClient extends AbstractClient
 {
     /**
@@ -268,5 +270,19 @@ class IssueClient extends AbstractClient
         }
 
         return $this->deleteRequest(sprintf('issue/%s/worklog/%s%s', $idOrKey, $worklogId, $parameters));
+    }
+
+    /**
+     * Search issues by given parameters
+     *
+     * @link  https://docs.atlassian.com/jira/REST/latest/#d2e4257
+     *
+     * @param  SearchBuilder $searchBuilder
+     *
+     * @return \GuzzleHttp\Message\Response
+     */
+    public function search(SearchBuilder $searchBuilder)
+    {
+        return $this->postRequest('searchs', $searchBuilder->execute());
     }
 }
