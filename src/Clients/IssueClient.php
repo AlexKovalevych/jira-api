@@ -283,6 +283,6 @@ class IssueClient extends AbstractClient
      */
     public function search(SearchBuilder $searchBuilder)
     {
-        return $this->postRequest('searchs', $searchBuilder->execute());
+        return $this->postRequest('search', $searchBuilder->execute());
     }
 }
