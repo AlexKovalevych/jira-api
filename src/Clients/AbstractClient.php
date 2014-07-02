@@ -23,7 +23,7 @@ abstract class AbstractClient
     public function __construct($url, $username, $password)
     {
         $this->client = new GuzzleClient(array(
-            'base_url' => $url,
+            'base_url' => rtrim($url, '/') . '/',
             'defaults' => array(
                 'auth' => array($username, $password)
             ))
