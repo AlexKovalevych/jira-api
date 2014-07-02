@@ -12,6 +12,10 @@ abstract class AbstractClient
     protected $client;
 
     /**
+     * Receives url, username and password for the connection
+     *
+     * "url": "https://myproject.atlassian.net/rest/api/latest/"
+     *
      * @param string $url
      * @param string $username
      * @param string $password
