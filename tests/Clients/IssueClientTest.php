@@ -2,6 +2,7 @@
 
 namespace JiraApi\Tests\Clients;
 
+use JiraApi\Search\SearchBuilder;
 use GuzzleHttp\Message\Response;
 use JiraApi\Tests\ClientTestCase;
 
@@ -253,6 +254,21 @@ class IssueClientTest extends ClientTestCase
         $response = $issueClientMock->deleteWorklog(10002, 100028);
 
         $this->assertEquals(400, $response->getCode());
+    }
+
+    public function testSearch()
+    {
+        $builder = new SearchBuilder();
+        $builder->setJql('project = PROJ');
+
+        $jsonFile = __DIR__ . '/../fixtures/issue/search.json';
+        $issueClient = $this->getIssueClientMock($this->getJsonResponseMock($jsonFile));
+        $searchResults = $issueClient->search($builder)->json();
+
+        $this->assertArrayHasKey('issues', $searchResults);
+        $this->assertCount(1, $searchResults['issues']);
+        $this->assertArrayHasKey('id', $searchResults['issues'][0]);
+        $this->assertEquals(10001, $searchResults['issues'][0]['id']);
     }
 
     protected function getIssueClientMock(Response $response)
