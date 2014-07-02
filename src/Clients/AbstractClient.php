@@ -14,7 +14,7 @@ abstract class AbstractClient
     /**
      * Receives url, username and password for the connection
      *
-     * "url": "https://myproject.atlassian.net/rest/api/latest/"
+     * "url": "https://myproject.atlassian.com/rest/api/latest/"
      *
      * @param string $url
      * @param string $username
@@ -22,11 +22,13 @@ abstract class AbstractClient
      */
     public function __construct($url, $username, $password)
     {
-        $this->client = new GuzzleClient(array(
-            'base_url' => rtrim($url, '/') . '/',
-            'defaults' => array(
-                'auth' => array($username, $password)
-            ))
+        $this->client = new GuzzleClient(
+            array(
+                'base_url' => rtrim($url, '/') . '/',
+                'defaults' => array(
+                    'auth' => array($username, $password)
+                )
+            )
         );
     }
 
