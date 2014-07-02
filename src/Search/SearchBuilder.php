@@ -177,7 +177,7 @@ class SearchBuilder
             'maxResults'    => $this->limit,
             'validateQuery' => $this->validateQuery,
             'fields'        => $this->fields,
-            'expand'        => $this->expandFields
+            'expand'        => $this->expandFields,
         );
     }
 }
