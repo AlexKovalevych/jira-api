@@ -18,9 +18,14 @@ class IssueClient extends AbstractClient
      */
     public function get($idOrKey, array $fields = null)
     {
-        $parameters = $fields ? sprintf('?%s', $this->createUriParameters(array(
-            'fields' => implode(',', $fields)
-        ))) : '';
+        $parameters = $fields ?
+            sprintf(
+                '?%s',
+                $this->createUriParameters(
+                    array('fields' => implode(',', $fields))
+                )
+            )
+            : '';
 
         return $this->getRequest(sprintf('issue/%s%s', $idOrKey, $parameters));
     }
@@ -189,11 +194,13 @@ class IssueClient extends AbstractClient
      */
     public function createWorklog($idOrKey, array $data, $adjustEstimate = null, $newEstimate = null, $reduceBy = null)
     {
-        $parameters = http_build_query(array(
-            'adjustEstimate' => $adjustEstimate,
-            'newEstimate'    => $newEstimate,
-            'reduceBy'       => $reduceBy,
-        ));
+        $parameters = http_build_query(
+            array(
+                'adjustEstimate' => $adjustEstimate,
+                'newEstimate'    => $newEstimate,
+                'reduceBy'       => $reduceBy,
+            )
+        );
 
         if ($parameters) {
             $parameters = sprintf('?%s', $parameters);
@@ -232,10 +239,12 @@ class IssueClient extends AbstractClient
      */
     public function updateWorklog($idOrKey, $worklogId, array $data, $adjustEstimate = null, $newEstimate = null)
     {
-        $parameters = http_build_query(array(
-            'adjustEstimate' => $adjustEstimate,
-            'newEstimate'    => $newEstimate,
-        ));
+        $parameters = http_build_query(
+            array(
+                'adjustEstimate' => $adjustEstimate,
+                'newEstimate'    => $newEstimate,
+            )
+        );
 
         if ($parameters) {
             $parameters = sprintf('?%s', $parameters);
@@ -259,11 +268,13 @@ class IssueClient extends AbstractClient
      */
     public function deleteWorklog($idOrKey, $worklogId, $adjustEstimate = null, $newEstimate = null, $increaseBy = null)
     {
-        $parameters = http_build_query(array(
-            'adjustEstimate' => $adjustEstimate,
-            'newEstimate'    => $newEstimate,
-            'increaseBy'     => $increaseBy,
-        ));
+        $parameters = http_build_query(
+            array(
+                'adjustEstimate' => $adjustEstimate,
+                'newEstimate'    => $newEstimate,
+                'increaseBy'     => $increaseBy,
+            )
+        );
 
         if ($parameters) {
             $parameters = sprintf('?%s', $parameters);
