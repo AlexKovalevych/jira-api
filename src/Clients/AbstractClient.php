@@ -6,6 +6,9 @@ use GuzzleHttp\Client as GuzzleClient;
 
 abstract class AbstractClient
 {
+    const AUTH_HTTP_PASSWORD = 'http_password';
+    const AUTH_HTTP_TOKEN = 'http_token';
+
     /**
      * @var GuzzleClient
      */
