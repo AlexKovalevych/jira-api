@@ -82,7 +82,7 @@ class IssueClientTest extends ClientTestCase
     public function testUpdateError()
     {
         $issueClientMock = $this->getIssueClientExceptionMock();
-        $issueClientMock->update(101, [));
+        $issueClientMock->update(101, []);
     }
 
     public function testGetTransitions()
