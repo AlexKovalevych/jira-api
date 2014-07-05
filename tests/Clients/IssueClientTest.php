@@ -32,7 +32,7 @@ class IssueClientTest extends ClientTestCase
     {
         $jsonFile = __DIR__ . '/../fixtures/issue/create.json';
         $issueClient = $this->getIssueClientMock($this->getJsonResponseMock($jsonFile));
-        $response = $issueClient->create(array())->json();
+        $response = $issueClient->create([])->json();
 
         $this->assertArrayHasKey('id', $response);
         $this->assertEquals(10000, $response['id']);
@@ -46,7 +46,7 @@ class IssueClientTest extends ClientTestCase
     public function testCreateError()
     {
         $issueClient = $this->getIssueClientExceptionMock();
-        $issueClient->create(array())->json();
+        $issueClient->create([])->json();
     }
 
     public function testDelete()
@@ -70,7 +70,7 @@ class IssueClientTest extends ClientTestCase
     public function testUpdate()
     {
         $issueClient = $this->getIssueClientMock($this->getResponseMock(200));
-        $response = $issueClient->update(10002, array());
+        $response = $issueClient->update(10002, []);
 
         $this->assertEquals(200, $response->getCode());
         $this->assertNull($response->json());
@@ -82,7 +82,7 @@ class IssueClientTest extends ClientTestCase
     public function testUpdateError()
     {
         $issueClientMock = $this->getIssueClientExceptionMock();
-        $issueClientMock->update(101, array());
+        $issueClientMock->update(101, [));
     }
 
     public function testGetTransitions()
@@ -100,7 +100,7 @@ class IssueClientTest extends ClientTestCase
     public function testCreateTransition()
     {
         $issueClient = $this->getIssueClientMock($this->getResponseMock(204));
-        $response = $issueClient->createTransition(10002, array());
+        $response = $issueClient->createTransition(10002, []);
 
         $this->assertEquals(204, $response->getCode());
         $this->assertNull($response->json());
@@ -129,7 +129,7 @@ class IssueClientTest extends ClientTestCase
     {
         $jsonFile = __DIR__ . '/../fixtures/issue/comment.json';
         $issueClient = $this->getIssueClientMock($this->getJsonResponseMock($jsonFile));
-        $response = $issueClient->createComment(10000, array())->json();
+        $response = $issueClient->createComment(10000, [])->json();
 
         $this->assertArrayHasKey('id', $response);
         $this->assertEquals(10000, $response['id']);
@@ -140,7 +140,7 @@ class IssueClientTest extends ClientTestCase
     public function testCreateCommentError()
     {
         $issueClientMock = $this->getIssueClientMock($this->getResponseMock(400));
-        $response = $issueClientMock->createComment(1, array());
+        $response = $issueClientMock->createComment(1, []);
 
         $this->assertEquals(400, $response->getCode());
     }
@@ -149,7 +149,7 @@ class IssueClientTest extends ClientTestCase
     {
         $jsonFile = __DIR__ . '/../fixtures/issue/comment.json';
         $issueClient = $this->getIssueClientMock($this->getJsonResponseMock($jsonFile));
-        $response = $issueClient->updateComment(10000, 10000, array())->json();
+        $response = $issueClient->updateComment(10000, 10000, [])->json();
 
         $this->assertArrayHasKey('id', $response);
         $this->assertEquals(10000, $response['id']);
@@ -160,7 +160,7 @@ class IssueClientTest extends ClientTestCase
     public function testUpdateCommentError()
     {
         $issueClientMock = $this->getIssueClientMock($this->getResponseMock(400));
-        $response = $issueClientMock->updateComment(1, 1, array());
+        $response = $issueClientMock->updateComment(1, 1, []);
 
         $this->assertEquals(400, $response->getCode());
         $this->assertNull($response->json());
@@ -199,7 +199,7 @@ class IssueClientTest extends ClientTestCase
     public function testCreateWorklog()
     {
         $issueClientMock = $this->getIssueClientMock($this->getResponseMock(200));
-        $response = $issueClientMock->createWorklog(10002, array());
+        $response = $issueClientMock->createWorklog(10002, []);
 
         $this->assertEquals(200, $response->getCode());
     }
@@ -207,7 +207,7 @@ class IssueClientTest extends ClientTestCase
     public function testCreateWorklogError()
     {
         $issueClientMock = $this->getIssueClientMock($this->getResponseMock(400));
-        $response = $issueClientMock->createWorklog(10002, array());
+        $response = $issueClientMock->createWorklog(10002, [));
 
         $this->assertEquals(400, $response->getCode());
     }
@@ -226,7 +226,7 @@ class IssueClientTest extends ClientTestCase
     {
         $jsonFile = __DIR__ . '/../fixtures/issue/worklog.json';
         $issueClient = $this->getIssueClientMock($this->getJsonResponseMock($jsonFile));
-        $worklog = $issueClient->updateWorklog(10002, 100028, array())->json();
+        $worklog = $issueClient->updateWorklog(10002, 100028, [])->json();
 
         $this->assertArrayHasKey('id', $worklog);
         $this->assertEquals(100028, $worklog['id']);
@@ -235,7 +235,7 @@ class IssueClientTest extends ClientTestCase
     public function testUpdateWorklogError()
     {
         $issueClientMock = $this->getIssueClientMock($this->getResponseMock(400));
-        $response = $issueClientMock->updateWorklog(10002, 100028, array());
+        $response = $issueClientMock->updateWorklog(10002, 100028, [));
 
         $this->assertEquals(400, $response->getCode());
     }
@@ -276,13 +276,15 @@ class IssueClientTest extends ClientTestCase
         $issueClientMock = $this
             ->getMockBuilder('JiraApi\Clients\IssueClient')
             ->disableOriginalConstructor()
-            ->setMethods(array('getClient'))
-            ->getMock();
+            ->setMethods(['getClient'])
+            ->getMock()
+        ;
 
         $issueClientMock
             ->expects($this->any())
             ->method('getClient')
-            ->will($this->returnValue($this->getGuzzleClientMock($response)));
+            ->will($this->returnValue($this->getGuzzleClientMock($response)))
+        ;
 
         return $issueClientMock;
     }
@@ -292,13 +294,15 @@ class IssueClientTest extends ClientTestCase
         $issueClientMock = $this
             ->getMockBuilder('JiraApi\Clients\IssueClient')
             ->disableOriginalConstructor()
-            ->setMethods(array('getClient'))
-            ->getMock();
+            ->setMethods(['getClient'])
+            ->getMock()
+    ;
 
         $issueClientMock
             ->expects($this->any())
             ->method('getClient')
-            ->will($this->returnValue($this->getGuzzleClientMockException()));
+            ->will($this->returnValue($this->getGuzzleClientMockException()))
+        ;
 
         return $issueClientMock;
     }

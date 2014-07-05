@@ -171,13 +171,13 @@ class SearchBuilder
      */
     public function execute()
     {
-        return array(
+        return [
             'jql'           => $this->jql,
             'startAt'       => $this->skip,
             'maxResults'    => $this->limit,
             'validateQuery' => $this->validateQuery,
             'fields'        => $this->fields,
             'expand'        => $this->expandFields,
-        );
+        ];
     }
 }

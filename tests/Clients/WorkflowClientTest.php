@@ -25,13 +25,15 @@ class WorkflowClientTest extends ClientTestCase
         $workflowClientMock = $this
             ->getMockBuilder('JiraApi\Clients\WorkflowClient')
             ->disableOriginalConstructor()
-            ->setMethods(array('getClient'))
-            ->getMock();
+            ->setMethods(['getClient'])
+            ->getMock()
+        ;
 
         $workflowClientMock
             ->expects($this->any())
             ->method('getClient')
-            ->will($this->returnValue($this->getGuzzleClientMock($response)));
+            ->will($this->returnValue($this->getGuzzleClientMock($response)))
+        ;
 
         return $workflowClientMock;
     }
