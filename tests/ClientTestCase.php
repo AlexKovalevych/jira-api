@@ -10,13 +10,15 @@ class ClientTestCase extends \PHPUnit_Framework_TestCase
     {
         $guzzleClientMock = $this
             ->getMockBuilder('GuzzleHttp\Client')
-            ->setMethods(array('send'))
-            ->getMock();
+            ->setMethods(['send'])
+            ->getMock()
+        ;
 
         $guzzleClientMock
             ->expects($this->any())
             ->method('send')
-            ->will($this->returnValue($response));
+            ->will($this->returnValue($response))
+        ;
 
         return $guzzleClientMock;
     }
@@ -27,15 +29,17 @@ class ClientTestCase extends \PHPUnit_Framework_TestCase
 
         $guzzleClientMock = $this
             ->getMockBuilder('GuzzleHttp\Client')
-            ->setMethods(array('send'))
-            ->getMock();
+            ->setMethods(['send'])
+            ->getMock()
+        ;
 
         $guzzleClientMock
             ->expects($this->any())
             ->method('send')
             ->will(
                 $this->throwException(new BadResponseException('', $requestMock))
-            );
+            )
+        ;
 
         return $guzzleClientMock;
     }
@@ -45,18 +49,21 @@ class ClientTestCase extends \PHPUnit_Framework_TestCase
         $response = $this
             ->getMockBuilder('GuzzleHttp\Message\Response')
             ->disableOriginalConstructor()
-            ->setMethods(array('getCode', 'getBody'))
-            ->getMock();
+            ->setMethods(['getCode', 'getBody'])
+            ->getMock()
+        ;
 
         $response
             ->expects($this->any())
             ->method('getCode')
-            ->will($this->returnValue($code));
+            ->will($this->returnValue($code))
+        ;
 
         $response
             ->expects($this->any())
             ->method('getBody')
-            ->will($this->returnValue($body));
+            ->will($this->returnValue($body))
+        ;
 
         return $response;
     }

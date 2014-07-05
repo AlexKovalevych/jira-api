@@ -22,14 +22,14 @@ class SearchBuilderTest extends \PHPUnit_Framework_TestCase
         $builder = new SearchBuilder();
 
         $this->assertEquals(
-            array(
+            [
                 'jql'           => null,
                 'startAt'       => null,
                 'maxResults'    => $builder->getLimit(),
                 'validateQuery' => true,
                 'fields'        => null,
                 'expand'        => null
-            ),
+            ],
             $builder->execute()
         );
 
@@ -37,18 +37,18 @@ class SearchBuilderTest extends \PHPUnit_Framework_TestCase
             ->setJql('project = test')
             ->setPage(5)
             ->setValidateQuery(false)
-            ->setFields(array('id', 'key', 'assignee'))
-            ->setExpandFields(array('assignee'))
+            ->setFields(['id', 'key', 'assignee'))
+            ->setExpandFields(['assignee'))
         ;
         $this->assertEquals(
-            array(
+            [
                 'jql'           => 'project = test',
                 'startAt'       => 80,
                 'maxResults'    => $builder->getLimit(),
                 'validateQuery' => false,
-                'fields'        => array('id', 'key', 'assignee'),
-                'expand'        => array('assignee')
-            ),
+                'fields'        => ['id', 'key', 'assignee'],
+                'expand'        => ['assignee']
+            ],
             $builder->execute()
         );
     }

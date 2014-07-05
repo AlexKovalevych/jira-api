@@ -26,12 +26,12 @@ abstract class AbstractClient
     public function __construct($url, $username, $password)
     {
         $this->client = new GuzzleClient(
-            array(
+            [
                 'base_url' => rtrim($url, '/') . '/',
-                'defaults' => array(
-                    'auth' => array($username, $password)
-                )
-            )
+                'defaults' => [
+                    'auth' => [$username, $password]
+                ]
+            ]
         );
     }
 
@@ -61,9 +61,9 @@ abstract class AbstractClient
      */
     public function postRequest($uri, array $data = null)
     {
-        return $this->getClient()->post($uri, array(
+        return $this->getClient()->post($uri, [
             'json' => $this->createBody($data)
-        ));
+        ]);
     }
 
     /**
@@ -74,9 +74,9 @@ abstract class AbstractClient
      */
     public function putRequest($uri, array $data = null)
     {
-        return $this->getClient()->put($uri, array(
+        return $this->getClient()->put($uri, [
             'json' => $this->createBody($data)
-        ));
+        ]);
     }
 
     /**
@@ -96,7 +96,7 @@ abstract class AbstractClient
      */
     protected function createBody(array $data = null)
     {
-        return $data ?: array();
+        return $data ?: [];
     }
 
     /**

@@ -71,13 +71,15 @@ class ProjectClientTest extends ClientTestCase
         $issueClientMock = $this
             ->getMockBuilder('JiraApi\Clients\ProjectClient')
             ->disableOriginalConstructor()
-            ->setMethods(array('getClient'))
-            ->getMock();
+            ->setMethods(['getClient'])
+            ->getMock()
+        ;
 
         $issueClientMock
             ->expects($this->any())
             ->method('getClient')
-            ->will($this->returnValue($this->getGuzzleClientMockException()));
+            ->will($this->returnValue($this->getGuzzleClientMockException()))
+        ;
 
         return $issueClientMock;
     }
@@ -87,13 +89,15 @@ class ProjectClientTest extends ClientTestCase
         $projectClientMock = $this
             ->getMockBuilder('JiraApi\Clients\ProjectClient')
             ->disableOriginalConstructor()
-            ->setMethods(array('getClient'))
-            ->getMock();
+            ->setMethods(['getClient'])
+            ->getMock()
+        ;
 
         $projectClientMock
             ->expects($this->any())
             ->method('getClient')
-            ->will($this->returnValue($this->getGuzzleClientMock($response)));
+            ->will($this->returnValue($this->getGuzzleClientMock($response)))
+        ;
 
         return $projectClientMock;
     }
