@@ -37,8 +37,8 @@ class SearchBuilderTest extends \PHPUnit_Framework_TestCase
             ->setJql('project = test')
             ->setPage(5)
             ->setValidateQuery(false)
-            ->setFields(['id', 'key', 'assignee'))
-            ->setExpandFields(['assignee'))
+            ->setFields(['id', 'key', 'assignee'])
+            ->setExpandFields(['assignee'])
         ;
         $this->assertEquals(
             [
