@@ -207,7 +207,7 @@ class IssueClientTest extends ClientTestCase
     public function testCreateWorklogError()
     {
         $issueClientMock = $this->getIssueClientMock($this->getResponseMock(400));
-        $response = $issueClientMock->createWorklog(10002, [));
+        $response = $issueClientMock->createWorklog(10002, []);
 
         $this->assertEquals(400, $response->getCode());
     }
@@ -235,7 +235,7 @@ class IssueClientTest extends ClientTestCase
     public function testUpdateWorklogError()
     {
         $issueClientMock = $this->getIssueClientMock($this->getResponseMock(400));
-        $response = $issueClientMock->updateWorklog(10002, 100028, [));
+        $response = $issueClientMock->updateWorklog(10002, 100028, []);
 
         $this->assertEquals(400, $response->getCode());
     }
