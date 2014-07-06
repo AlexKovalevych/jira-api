@@ -13,4 +13,4 @@ script:
   - ./bldr.phar build -p travis
 
 notifications:
-  irc: "irc.freenode.org#gushphp"
+  email: "alexkovalevych@gmail.com"
