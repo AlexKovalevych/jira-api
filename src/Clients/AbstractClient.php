@@ -77,6 +77,20 @@ abstract class AbstractClient
 
     /**
      * @param  string $uri
+     * @param  resource $file
+     *
+     * @return \GuzzleHttp\Message\Response
+     */
+    public function postFile($uri, $file = null)
+    {
+        return $this->getClient()->post($uri, [
+            'headers' => ['X-Atlassian-Token' => 'no-check'],
+            'body' => ['file' => $file]
+        ]);
+    }
+
+    /**
+     * @param string $uri
      * @param array $data
      *
      * @return \GuzzleHttp\Message\Response

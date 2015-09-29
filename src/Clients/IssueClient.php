@@ -87,6 +87,25 @@ class IssueClient extends AbstractClient
     }
 
     /**
+     * Create issue attachment by its id or key
+     *
+     * @link  https://docs.atlassian.com/jira/REST/latest/#d2e1228
+     *
+     * @param  integer|string $idOrKey
+     * @param  array          $data
+     *
+     * @return \GuzzleHttp\Message\Response
+     */
+    public function createAttachment($idOrKey, $fileHandle)
+    {
+        if (gettype($fileHandle) != 'resource') {
+            throw new \RuntimeException(sprintf('createAttachment() expects parameter 2 to be resource, %s given', gettype($fileHandle)));
+        }
+
+        return $this->postFile(sprintf('issue/%s/attachments', $idOrKey), $fileHandle);
+    }
+
+    /**
      * Get a list of the possible transitions
      *
      * @link  https://docs.atlassian.com/jira/REST/latest/#d2e1289
