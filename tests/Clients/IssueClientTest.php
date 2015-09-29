@@ -64,7 +64,7 @@ class IssueClientTest extends ClientTestCase
         $response = $issueClientMock->delete(1);
 
         $this->assertEquals(204, $response->getCode());
-        $this->assertNull($response->json());
+        $this->assertNull($response->getBody());
     }
 
     /**
@@ -82,7 +82,7 @@ class IssueClientTest extends ClientTestCase
         $response = $issueClient->update(10002, []);
 
         $this->assertEquals(200, $response->getCode());
-        $this->assertNull($response->json());
+        $this->assertNull($response->getBody());
     }
 
     /**
@@ -112,7 +112,7 @@ class IssueClientTest extends ClientTestCase
         $response = $issueClient->createTransition(10002, []);
 
         $this->assertEquals(204, $response->getCode());
-        $this->assertNull($response->json());
+        $this->assertNull($response->getBody());
     }
 
     public function testGetComments()
@@ -172,7 +172,7 @@ class IssueClientTest extends ClientTestCase
         $response = $issueClientMock->updateComment(1, 1, []);
 
         $this->assertEquals(400, $response->getCode());
-        $this->assertNull($response->json());
+        $this->assertNull($response->getBody());
     }
 
     public function testDeleteComment()
@@ -181,7 +181,7 @@ class IssueClientTest extends ClientTestCase
         $response = $issueClientMock->deleteComment(10002, 10000);
 
         $this->assertEquals(204, $response->getCode());
-        $this->assertNull($response->json());
+        $this->assertNull($response->getBody());
     }
 
     public function testDeleteCommentError()
@@ -190,7 +190,7 @@ class IssueClientTest extends ClientTestCase
         $response = $issueClientMock->deleteComment(10002, 10000);
 
         $this->assertEquals(404, $response->getCode());
-        $this->assertNull($response->json());
+        $this->assertNull($response->getBody());
     }
 
     public function testGetFullWorklog()
